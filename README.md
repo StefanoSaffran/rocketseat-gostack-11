@@ -4,7 +4,7 @@
   GoStack 11 - Challenges
 </h3>
 
-<p align="center">“You are never too old to set another goal or to dream a new dream.”!</blockquote>
+<blockquote align="center">“You are never too old to set another goal or to dream a new dream.”!</blockquote>
 
 <p align="center">
   <a href="stefanosaffran.com">

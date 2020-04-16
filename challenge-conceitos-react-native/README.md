@@ -4,7 +4,7 @@
   Challenge 04 - React Native concepts.
 </h3>
 
-<p align="center">“Success is not the result of a game, but the destination of a journey”!</blockquote>
+<blockquote align="center">“Success is not the result of a game, but the destination of a journey”!</blockquote>
 
 <p align="center">
   <a href="stefanosaffran.com">

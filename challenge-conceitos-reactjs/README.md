@@ -4,7 +4,7 @@
   Challenge 03 - ReactJS concepts.
 </h3>
 
-<p align="center">"Don't wait to plant, just be patient to reap"!</blockquote>
+<blockquote align="center">"Don't wait to plant, just be patient to reap"!</blockquote>
 
 <p align="center">
   <a href="stefanosaffran.com">

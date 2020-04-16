@@ -1,10 +1,10 @@
 <img alt="GoStack" src="https://res.cloudinary.com/stefanosaffran/image/upload/v1586943536/d32tomvl6x8onypta01h.png" />
 
 <h3 align="center">
-  Challenge 02 - Node.js concepts.
+  Challenge 05 - Node.js - First project
 </h3>
 
-<blockquote align="center">"Don't wait to plant, just be patient to reap"!</blockquote>
+<blockquote align="center">“Live as if you were to die tomorrow. Learn as if you were to live forever.”!</blockquote>
 
 <p align="center">
   <a href="stefanosaffran.com">
@@ -12,9 +12,20 @@
   </a>
 </p>
 
-## :computer: Project 
+## :computer: Project
 
-Application to store repositories, which allows the creation, listing, updating and removal of repositories and, in addition, allows the repositories to receive likes.
+Application to store incoming and outgoing financial transactions, which allows the registration and listing of these transactions.
+
+## :rocket: Built with
+
+This project was developed with the following technologies:
+
+-   [Node.js](https://nodejs.org/)
+-   [Express](https://expressjs.com/)
+-   [TypeScript](https://github.com/microsoft/TypeScript)
+-   [ESLint](https://eslint.org/)
+-   [Prettier](https://prettier.io/)
+-   [VS Code](https://code.visualstudio.com/)
 
 ## :mailbox_with_mail: Get in touch!
 
@@ -26,7 +37,7 @@ Application to store repositories, which allows the creation, listing, updating 
 </a>&nbsp;&nbsp;&nbsp;
 <a href="mailto:stefanoas@gmail.com" target="_blank" >
   <img alt="Email - Stefano Saffran" src="https://img.shields.io/badge/Email--%23F8952D?style=social&logo=gmail">
-</a> 
+</a>
 
 ---
 
