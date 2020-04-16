@@ -23,11 +23,11 @@ function App() {
 	      url: `https://github.com/StefanoSaffran/new-repository-${Date.now}`,
 	      techs: ["ReactJS"]
       })
+
+    setRepositories([...repositories, data])
     } catch(err) {
       alert(err?.response?.data?.error);
     }
-
-    setRepositories([...repositories, data])
   }
 
   async function handleRemoveRepository(id) {
