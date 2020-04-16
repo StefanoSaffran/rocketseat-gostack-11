@@ -26,7 +26,7 @@ function validateRepositoryId(request, response, next) {
   const { id } = request.params;
 
   if(!isUuid(id)) {
-    return response.status(401).json({ error: 'Invalid project ID'})
+    return response.status(400).json({ error: 'Invalid project ID'})
   }
 
   return next();
