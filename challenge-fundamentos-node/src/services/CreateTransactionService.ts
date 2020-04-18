@@ -15,11 +15,11 @@ class CreateTransactionService {
   }
 
   public execute({ title, value, type }: RequestDTO): Transaction {
-    if (type !== 'income' && type !== 'outcome') throw Error('Type is invalid');
+    if (!['income', 'outcome'].includes(type)) throw Error('Type is invalid');
 
-    const { income, outcome } = this.transactionsRepository.getBalance();
+    const { total } = this.transactionsRepository.getBalance();
 
-    if (type === 'outcome' && income - (outcome + value) < 0)
+    if (type === 'outcome' && total < value)
       throw Error('Transaction not permitted, insufficient funds');
 
     const transaction = this.transactionsRepository.create({
