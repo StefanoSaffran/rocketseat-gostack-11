@@ -14,7 +14,7 @@
 
 ## :computer: Project
 
-Application to store in a postgres database using typeORM, incoming and outgoing financial transactions, which allows the registration, listing and removal of these transactions, in addition, allows registration from the upload of a csv file.
+Application to store in a postgres database using typeORM, incoming and outgoing financial transactions, which allows the registration, listing and removal of these transactions, in addition, allows registration of transactions through csv files uploaded using Multer.
 
 ## :rocket: Built with
 
