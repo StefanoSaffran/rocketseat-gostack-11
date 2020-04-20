@@ -25,7 +25,9 @@ export default class CreateTransactions1587139872419
           },
           {
             name: 'value',
-            type: 'int',
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'type',
@@ -34,6 +36,7 @@ export default class CreateTransactions1587139872419
           {
             name: 'category_id',
             type: 'uuid',
+            isNullable: true,
           },
           {
             name: 'created_at',

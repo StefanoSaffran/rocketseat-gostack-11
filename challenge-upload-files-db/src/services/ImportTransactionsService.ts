@@ -1,14 +1,11 @@
 import fs from 'fs';
 import csvParse from 'csv-parse';
-import { join } from 'path';
-
-import uploadConfig from '../config/upload';
 
 import Transaction from '../models/Transaction';
 import CreateTransactionService from './CreateTransactionService';
 
 interface Request {
-  filename: string;
+  filePath: string;
 }
 
 interface TransactionDTO {
@@ -19,13 +16,12 @@ interface TransactionDTO {
 }
 
 class ImportTransactionsService {
-  async execute({ filename }: Request): Promise<Transaction[]> {
+  async execute({ filePath }: Request): Promise<Transaction[]> {
     const createTransaction = new CreateTransactionService();
 
     const parsers = csvParse({ ltrim: true, from_line: 2 });
 
-    const csvFilePath = join(uploadConfig.directory, filename);
-    const csvReadStream = fs.createReadStream(csvFilePath);
+    const csvReadStream = fs.createReadStream(filePath);
 
     const parseCSV = csvReadStream.pipe(parsers);
 
@@ -34,10 +30,15 @@ class ImportTransactionsService {
     parseCSV.on('data', async line => {
       const [title, type, value, category] = line;
 
+      if (!title || !type || !value) return;
+
       importedTransactions.push({ title, type, value, category });
     });
 
-    await new Promise(resolve => parseCSV.on('end', resolve));
+    await new Promise((resolve, reject) => {
+      parseCSV.on('error', err => reject(err));
+      parseCSV.on('end', resolve);
+    });
 
     const storedTransaction: Transaction[] = [];
 
@@ -49,7 +50,7 @@ class ImportTransactionsService {
       storedTransaction.push(newTransaciton);
     }
 
-    await fs.promises.unlink(csvFilePath);
+    await fs.promises.unlink(filePath);
 
     return storedTransaction;
   }
