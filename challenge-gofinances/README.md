@@ -14,7 +14,7 @@
 
 ## :computer: Project
 
-ReactJS Application that connects to the [Challenge 06](https://github.com/StefanoSaffran/rocketseat-gostack11/tree/master/challenge-upload-files-db) API, display and format the transactions created and allow importing a CSV file to generate new records in the database.
+ReactJS Application that connects to the [Challenge 06](https://github.com/StefanoSaffran/rocketseat-gostack11/tree/master/challenge-upload-files-db) API, format and display the created transactions and allow importing a CSV file to generate new records in the database.
 
 <p align="center">
   <img src="https://res.cloudinary.com/stefanosaffran/image/upload/v1587495424/GoStack/b12asbwdgukvhosuboom.gif" >
