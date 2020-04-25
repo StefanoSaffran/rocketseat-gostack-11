@@ -17,7 +17,7 @@
 GoMarketplace application brings together all the concepts passed so far in the bootcamp, such as, TypeScript, Routes, Async Storage, Context API and more.
 
 <p align="center">
-  <img src="https://res.cloudinary.com/stefanosaffran/image/upload/v1587803483/GoStack/challenges/vdiyhhkx5hp3uu9lfzjc.gif" height="320">
+  <img src="https://res.cloudinary.com/stefanosaffran/image/upload/v1587803483/GoStack/challenges/vdiyhhkx5hp3uu9lfzjc.gif" height="420">
 
 ## :rocket: Built with
 
