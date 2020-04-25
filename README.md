@@ -9,6 +9,9 @@
 <p align="center">
   <a href="stefanosaffran.com">
     <img alt="Made by Stefano" src="https://img.shields.io/badge/made%20by-Stefano Saffran-%2304D361">
+    <img alt="Project top programing language" src="https://img.shields.io/github/languages/top/StefanoSaffran/rocketseat-gostack11">
+    <img alt="Project programing languages count" src="https://img.shields.io/github/languages/count/StefanoSaffran/rocketseat-gostack11">
+    <img alt="Repository size" src="https://img.shields.io/github/repo-size/StefanoSaffran/rocketseat-gostack11">
   </a>
 </p>
 
