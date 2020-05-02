@@ -12,12 +12,12 @@ export const Title = styled.h1`
   font-weight: 500;
   font-size: 36px;
   line-height: 54px;
-  color: #363f5f;
+  color: ${({ theme }) => theme.colors.title};
   text-align: center;
 `;
 
 export const ImportFileContainer = styled.section`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.cardBackground};
   margin-top: 40px;
   border-radius: 5px;
   padding: 64px;
@@ -34,7 +34,7 @@ export const Footer = styled.section`
     align-items: center;
     font-size: 12px;
     line-height: 18px;
-    color: #969cb3;
+    color: ${({ theme }) => theme.colors.text};
 
     img {
       margin-right: 5px;
@@ -42,7 +42,7 @@ export const Footer = styled.section`
   }
 
   button {
-    background: #ff872c;
+    background: ${({ theme }) => theme.colors.secundary};
     color: #fff;
     border-radius: 5px;
     padding: 15px 80px;
@@ -50,7 +50,7 @@ export const Footer = styled.section`
     transition: background-color 0.2s;
 
     &:hover {
-      background: ${shade(0.2, '#ff872c')};
+      background: ${({ theme }) => shade(0.2, theme.colors.secundary)};
     }
   }
 `;

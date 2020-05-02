@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import 'react-toggle/style.css';
+
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -9,7 +11,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #F0F2F5 ;
+    background: ${({ theme }) => theme?.colors.background};
     -webkit-font-smoothing: antialiased
   }
 
