@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import ReactModal from 'react-modal';
 
 interface IModalProps {
@@ -10,6 +10,7 @@ interface IModalProps {
 
 const Modal: React.FC<IModalProps> = ({ children, isOpen, setIsOpen }) => {
   const [modalStatus, setModalStatus] = useState(isOpen);
+  const { title, colors } = useContext(ThemeContext);
 
   useEffect(() => {
     setModalStatus(isOpen);
@@ -29,8 +30,8 @@ const Modal: React.FC<IModalProps> = ({ children, isOpen, setIsOpen }) => {
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
-          background: '#F0F0F5',
-          color: '#000000',
+          background: colors.background,
+          color: colors.body,
           borderRadius: '8px',
           width: '736px',
           border: 'none',

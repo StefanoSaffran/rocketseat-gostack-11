@@ -4,9 +4,10 @@ export default {
   colors: {
     background: '#333',
     cardBackground: '#222',
+    inputBackground: '#222',
     footer: '#111',
     body: '#fff',
-    title: '#ccc',
     text: '#ccc',
+    placeholder: '#666',
   },
 };

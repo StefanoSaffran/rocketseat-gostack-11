@@ -7,10 +7,11 @@ declare module 'styled-components' {
     colors: {
       background: string;
       cardBackground: string;
+      inputBackground: string;
       footer: string;
       body: string;
-      title: string;
       text: string;
+      placeholder: string;
     };
   }
 }

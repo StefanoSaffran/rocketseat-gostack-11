@@ -9,7 +9,7 @@ export const Container = styled.div<IContainerProps>`
   display: flex;
   align-items: center;
 
-  background: #fff;
+  background: ${({ theme }) => theme.colors.inputBackground};
   border-radius: 8px;
   padding: 18px 24px;
   width: 100%;
@@ -43,10 +43,10 @@ export const Container = styled.div<IContainerProps>`
     flex: 1;
     background: transparent;
     border: 0;
-    color: #b7b7cc;
+    color: ${({ theme }) => theme.colors.text};
 
     &::placeholder {
-      color: #b7b7cc;
+      color: ${({ theme }) => theme.colors.placeholder};
     }
   }
 
