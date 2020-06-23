@@ -57,6 +57,7 @@ interface Food {
   price: number;
   category: number;
   image_url: string;
+  thumbnail_url: string;
   formattedPrice: string;
   extras: Extra[];
 }
@@ -91,6 +92,16 @@ const FoodDetails: React.FC = () => {
     loadFood();
   }, [routeParams]);
 
+  useEffect(() => {
+    api.get<Food[]>('favorites').then(({ data }) => {
+      data.forEach(favorite => {
+        if (favorite.name === food.name) {
+          setIsFavorite(true);
+        }
+      });
+    });
+  }, [food]);
+
   function handleIncrementExtra(id: number): void {
     setExtras(oldExtras =>
       oldExtras.map(extra =>
@@ -121,7 +132,28 @@ const FoodDetails: React.FC = () => {
     setFoodQuantity(oldQuantity => oldQuantity - 1);
   }
 
-  const toggleFavorite = useCallback(() => {
+  const toggleFavorite = useCallback(async () => {
+    try {
+      if (isFavorite) {
+        await api.delete(`favorites/${routeParams.id}`);
+      } else {
+        const newFavorite = {
+          id: food.id,
+          name: food.name,
+          description: food.description,
+          price: food.price,
+          category: food.category,
+          image_url: food.image_url,
+          thumbnail_url: food.thumbnail_url,
+          extras: food.extras,
+        };
+
+        await api.post('favorites', newFavorite);
+      }
+    } catch (err) {
+      Alert.alert('Erro ao tentar favoritar prato.', err);
+    }
+
     setIsFavorite(!isFavorite);
   }, [isFavorite, food]);
 
