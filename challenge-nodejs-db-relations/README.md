@@ -1,7 +1,7 @@
 <img alt="GoStack" src="https://res.cloudinary.com/stefanosaffran/image/upload/v1586943536/d32tomvl6x8onypta01h.png" />
 
 <h3 align="center">
-  Challenge 09 - Node.js - Database relations!
+  Challenge 09 - Node.js - Database relationships!
 </h3>
 
 <blockquote align="center">“Change you and everything else will change naturally.”!</blockquote>
@@ -14,7 +14,7 @@
 
 ## :computer: Project
 
-The Application is a small e-commerce that allow the creation of customers, products and orders, and allow the customer to make new purchace orders, storing in a postgres database using typeORM.
+The Application is a small e-commerce that allow the creation of customers, products and orders, and allow the customer to make new orders, storing it in a postgres database using typeORM.
 
 ## :rocket: Built with
 
