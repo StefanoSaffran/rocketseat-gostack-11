@@ -9,10 +9,10 @@ export const Container = styled.View<ContainerProps>`
   width: 100%;
   height: 60px;
   padding: 0 16px;
-  background: #f0f0f5;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 10px;
   border-width: 2px;
-  border-color: #f0f0f5;
+  border-color: ${({ theme }) => theme.colors.cardBackground};
   flex-direction: row;
   align-items: center;
 
@@ -25,7 +25,7 @@ export const Container = styled.View<ContainerProps>`
 
 export const TextInput = styled.TextInput`
   flex: 1;
-  color: #6c6c80;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
   font-family: 'Poppins-Regular';
 `;

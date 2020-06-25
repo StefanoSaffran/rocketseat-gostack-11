@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Image } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
 
@@ -18,25 +19,50 @@ import {
   FoodPricing,
 } from './styles';
 
-interface Food {
+interface Extra {
+  id: number;
+  name: string;
+  value: number;
+  quantity: number;
+}
+
+export interface Food {
   id: number;
   name: string;
   description: string;
   price: number;
-  formattedValue: number;
   thumbnail_url: string;
+  formattedPrice: string;
+  total: string;
+  foodQuantity: number;
+  extras: Extra[];
 }
 
 const Orders: React.FC = () => {
   const [orders, setOrders] = useState<Food[]>([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     async function loadOrders(): Promise<void> {
-      api.get('orders').then(({ data }) => setOrders(data));
+      const { data } = await api.get<Food[]>('orders');
+
+      setOrders(
+        data.map(food => ({
+          ...food,
+          formattedPrice: formatValue(food.price),
+        })),
+      );
     }
 
     loadOrders();
   }, []);
+
+  const handleNavigate = useCallback(
+    (food: Food) => {
+      navigation.navigate('OrderDetails', { ...food });
+    },
+    [navigation],
+  );
 
   return (
     <Container>
@@ -49,7 +75,11 @@ const Orders: React.FC = () => {
           data={orders}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
-            <Food key={item.id} activeOpacity={0.6}>
+            <Food
+              key={item.id}
+              activeOpacity={0.6}
+              onPress={() => handleNavigate(item)}
+            >
               <FoodImageContainer>
                 <Image
                   style={{ width: 88, height: 88 }}

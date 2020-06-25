@@ -1,18 +1,10 @@
 import styled from 'styled-components/native';
 import { FlatList } from 'react-native';
-
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  formattedValue: number;
-  thumbnail_url: string;
-}
+import { Food as FoodProps } from '.';
 
 export const Container = styled.View`
   flex: 1;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Header = styled.View`
@@ -37,7 +29,7 @@ export const FoodsContainer = styled.View`
   margin-top: -60px;
 `;
 
-export const FoodList = styled(FlatList as new () => FlatList<Product>)`
+export const FoodList = styled(FlatList as new () => FlatList<FoodProps>)`
   flex: 1;
   padding: 0 20px;
 
@@ -49,7 +41,7 @@ export const Food = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
 
-  background: #f0f0f5;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 8px;
 
   margin-bottom: 16px;
@@ -76,7 +68,7 @@ export const FoodTitle = styled.Text`
   font-size: 15px;
   line-height: 22px;
 
-  color: #3d3d4d;
+  color: ${({ theme }) => theme.colors.title};
 `;
 export const FoodDescription = styled.Text`
   font-family: 'Poppins-Regular';
@@ -87,7 +79,7 @@ export const FoodDescription = styled.Text`
 
   margin-top: 6px;
 
-  color: #3d3d4d;
+  color: ${({ theme }) => theme.colors.title};
 `;
 
 export const FoodPricing = styled.Text`
