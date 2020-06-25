@@ -25,7 +25,7 @@
       "id": 2,
       "name": "Veggie",
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
-      "price": "21.90",
+      "price": 21.9,
       "category": 2,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/veggie.png",
@@ -41,7 +41,7 @@
       "id": 3,
       "name": "A la Camarón",
       "description": "Macarrão com vegetais de primeira linha e camarão dos 7 mares.",
-      "price": "25.90",
+      "price": 25.9,
       "category": 3,
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/camarao.png",
@@ -73,21 +73,24 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "product_id": 1,
-      "name": "Ao molho",
-      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
-      "price": 19.9,
-      "category": 1,
-      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
+      "product_id": 2,
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": 21.9,
+      "category": 2,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "foodQuantity": 1,
       "extras": [
         {
-          "id": 4,
+          "id": 3,
           "name": "Bacon",
           "value": 1.5,
-          "quantity": 1
+          "quantity": 2
         }
-      ]
+      ],
+      "total": "R$24,90",
+      "id": 1
     },
     {
       "product_id": 1,
@@ -95,27 +98,74 @@
       "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
       "price": 19.9,
       "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "foodQuantity": 1,
       "extras": [
         {
           "id": 1,
           "name": "Bacon",
           "value": 1.5,
           "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2,
+          "quantity": 1
         }
       ],
+      "total": "R$23,40",
       "id": 2
+    },
+    {
+      "product_id": 1,
+      "name": "Ao molho",
+      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "price": 19.9,
+      "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "foodQuantity": 1,
+      "extras": [
+        {
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 2
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2,
+          "quantity": 1
+        }
+      ],
+      "total": "R$24,90",
+      "id": 3
     }
   ],
   "favorites": [
     {
-      "id": 2,
-      "name": "Veggie",
-      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
-      "price": "21.90",
-      "category": 2,
-      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
-      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/veggie.png"
+      "id": 1,
+      "name": "Ao molho",
+      "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "price": 19.9,
+      "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
+      "extras": [
+        {
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2
+        }
+      ]
     }
   ]
 }
