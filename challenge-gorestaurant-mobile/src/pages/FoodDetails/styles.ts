@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Header = styled.View`
@@ -29,7 +29,7 @@ export const FoodsContainer = styled.View`
 export const Food = styled.View`
   display: flex;
   flex-direction: column;
-  background: #f0f0f5;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 8px;
   margin-bottom: 16px;
 `;
@@ -50,7 +50,7 @@ export const FoodTitle = styled.Text`
   font-weight: 600;
   font-size: 20px;
   line-height: 32px;
-  color: #3d3d4d;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const FoodDescription = styled.Text`
@@ -60,7 +60,7 @@ export const FoodDescription = styled.Text`
   font-size: 15px;
   line-height: 25px;
   margin-top: 8px;
-  color: #3d3d4d;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const FoodPricing = styled.Text`
@@ -69,7 +69,7 @@ export const FoodPricing = styled.Text`
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
-  color: #6c6c80;
+  color: ${({ theme }) => theme.colors.titleAlternative};
   margin-top: 8px;
   font-weight: 600;
 `;
@@ -80,7 +80,7 @@ export const Title = styled.Text`
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  color: #3d3d4d;
+  color: ${({ theme }) => theme.colors.title};
 `;
 
 export const AdditionalsContainer = styled.View`
@@ -89,7 +89,7 @@ export const AdditionalsContainer = styled.View`
 `;
 
 export const AdittionalItem = styled.View`
-  background: #f0f0f5;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -104,7 +104,7 @@ export const AdittionalItemText = styled.Text`
   font-weight: normal;
   font-size: 15px;
   line-height: 18px;
-  color: #6c6c80;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const AdittionalQuantity = styled.View`
@@ -142,7 +142,7 @@ export const QuantityContainer = styled.View`
   justify-content: space-between;
   align-items: center;
   width: 105px;
-  background: #f0f0f5;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 8px;
   padding: 10px 15px;
   margin-top: 25px;

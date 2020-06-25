@@ -4,14 +4,16 @@ import React, {
   useCallback,
   useMemo,
   useLayoutEffect,
+  useContext,
 } from 'react';
 import { Image, Alert } from 'react-native';
-
+import { ThemeContext } from 'styled-components';
 import Icon from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import formatValue from '../../utils/formatValue';
 
+import formatValue from '../../utils/formatValue';
+import { useTheme } from '../../hooks/theme';
 import api from '../../services/api';
 
 import {
@@ -63,6 +65,7 @@ interface Food {
 }
 
 const FoodDetails: React.FC = () => {
+  const { colors } = useContext(ThemeContext);
   const [food, setFood] = useState({} as Food);
   const [extras, setExtras] = useState<Extra[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -155,16 +158,15 @@ const FoodDetails: React.FC = () => {
     }
 
     setIsFavorite(!isFavorite);
-  }, [isFavorite, food]);
+  }, [isFavorite, food, routeParams.id]);
 
   const cartTotal = useMemo(() => {
-    const totalExtras = extras.reduce(
-      (total, next) => total + next.value * next.quantity,
-      0,
-    );
-    const totalUnitary = totalExtras + food.price;
+    const totalExtras = extras.reduce((total, next) => {
+      return total + next.value * next.quantity;
+    }, 0);
+    const totalPrice = foodQuantity * food.price + totalExtras;
 
-    return formatValue(totalUnitary * foodQuantity);
+    return formatValue(totalPrice);
   }, [extras, food, foodQuantity]);
 
   async function handleFinishOrder(): Promise<void> {
@@ -174,8 +176,11 @@ const FoodDetails: React.FC = () => {
       description: food.description,
       price: food.price,
       category: food.category,
+      image_url: food.image_url,
       thumbnail_url: food.image_url,
+      foodQuantity,
       extras: extras.filter(extra => extra.quantity > 0),
+      total: cartTotal,
     };
 
     try {
@@ -187,7 +192,6 @@ const FoodDetails: React.FC = () => {
     }
   }
 
-  // Calculate the correct icon name
   const favoriteIconName = useMemo(
     () => (isFavorite ? 'favorite' : 'favorite-border'),
     [isFavorite],
@@ -237,7 +241,7 @@ const FoodDetails: React.FC = () => {
               <AdittionalQuantity>
                 <Icon
                   size={15}
-                  color="#6C6C80"
+                  color={colors.text}
                   name="minus"
                   onPress={() => handleDecrementExtra(extra.id)}
                   testID={`decrement-extra-${extra.id}`}
@@ -247,7 +251,7 @@ const FoodDetails: React.FC = () => {
                 </AdittionalItemText>
                 <Icon
                   size={15}
-                  color="#6C6C80"
+                  color={colors.text}
                   name="plus"
                   onPress={() => handleIncrementExtra(extra.id)}
                   testID={`increment-extra-${extra.id}`}
@@ -263,7 +267,7 @@ const FoodDetails: React.FC = () => {
             <QuantityContainer>
               <Icon
                 size={15}
-                color="#6C6C80"
+                color={colors.text}
                 name="minus"
                 onPress={handleDecrementFood}
                 testID="decrement-food"
@@ -273,7 +277,7 @@ const FoodDetails: React.FC = () => {
               </AdittionalItemText>
               <Icon
                 size={15}
-                color="#6C6C80"
+                color={colors.text}
                 name="plus"
                 onPress={handleIncrementFood}
                 testID="increment-food"

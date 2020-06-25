@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Image, ScrollView } from 'react-native';
-
+import { ThemeContext } from 'styled-components';
 import Icon from 'react-native-vector-icons/Feather';
+
 import { useNavigation } from '@react-navigation/native';
 import Logo from '../../assets/logo-header.png';
 import SearchInput from '../../components/SearchInput';
 
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
+import { useTheme } from '../../hooks/theme';
 
 import {
   Container,
@@ -15,6 +17,8 @@ import {
   FilterContainer,
   Title,
   CategoryContainer,
+  ToggleThemeButton,
+  ThemeIcon,
   CategorySlider,
   CategoryItem,
   CategoryItemTitle,
@@ -50,6 +54,8 @@ const Dashboard: React.FC = () => {
     number | undefined
   >();
   const [searchValue, setSearchValue] = useState('');
+  const { title, colors } = useContext(ThemeContext);
+  const { toggleTheme } = useTheme();
 
   const navigation = useNavigation();
 
@@ -117,6 +123,9 @@ const Dashboard: React.FC = () => {
       <ScrollView>
         <CategoryContainer>
           <Title>Categorias</Title>
+          <ToggleThemeButton onPress={toggleTheme}>
+            <ThemeIcon name={title === 'light' ? 'sun' : 'moon'} />
+          </ToggleThemeButton>
           <CategorySlider
             contentContainerStyle={{
               paddingHorizontal: 20,
